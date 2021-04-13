@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tech Blog</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href='/'>MVC Tech Blog</a>
+      </h1>
+      <div>
+        <nav class"nav">
+          <a class="link" href="/">Home</a>"
+          <a class="link" href"/dashboard">Dashboard</a>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a class="link" href="/" id="logout">Logout</button>
+            {{else}}
+            <a class="link"> href="/login">Login</a>
+            {{/if}}
+        </nav>
+      </div>
+
+    </header>
+    <main>
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
