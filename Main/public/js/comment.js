@@ -1,15 +1,13 @@
 const commentFormHandler = async (event) => {
   event.preventDefault();
 
-  const comment = document.querySelector('#comment').value.trim();
-  const post_id = window.location.toString().split('/')[
-    window.location.toString.split('/').length - 1
-  ];
+  const body = document.querySelector('#comment').value.trim();
+  const post_id = parseInt(document.querySelector('.comment').getAttribute('data-post_id'));
 
-  if (comment) {
+  if (body) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
-      body: JSON.stringify({ post_id, comment }),
+      body: JSON.stringify({ post_id, body }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -21,8 +19,7 @@ const commentFormHandler = async (event) => {
       alert('Failed to update comment');
     }
   }
-
-
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
-
 }
+
+document.querySelector('.comment').addEventListener('click', commentFormHandler);
+

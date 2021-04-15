@@ -1,9 +1,18 @@
-{{> post-info post}}
-
 {{#if logged_in}}
 <div class="card">
     <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
+    </div>
+<form class="card-body comment-form" id="comment-form">
+       <p>Add comment </p> 
+    <textarea id='comment'>
         
+     </textarea>
+     <button class="comment" data-post_id={{post.id}}>submit</button>
     </form>
-</div>
+
+ {{#each post.comments as |comment|}}  
+ <p> {{comment.body}} </p> 
+{{/each}}
+{{/if}}
+
+<script src="/js/comment.js"></script>

@@ -3,11 +3,11 @@ const newFormHandler = async (event) => {
   
     // Collect values from the login form
     const title = document.querySelector('#title').value.trim();
-    const content = document.querySelector('#content').value.trim();
+    const body = document.querySelector('#content').value.trim();
   
     const response = await fetch('/api/posts', {
         method: 'POST',
-        body: JSON.stringify({ title, content }),
+        body: JSON.stringify({ title, body }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -19,6 +19,6 @@ const newFormHandler = async (event) => {
       }
     }
  
-  
-  document.querySelector('.login-form').addEventListener('submit', newFormHandler);
-  
+  if (document.querySelector('#new-post-form')){
+  document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);
+  }
