@@ -3,15 +3,11 @@ const editFormHandler = async (event) => {
   
     // Collect values from the login form
     const title = document.querySelector('#title').value.trim();
-    const content = document.querySelector('#content').value.trim();
+    const body = document.querySelector('#content').value.trim();
   
-    const id = window.location.toString().split('/')[
-        window.location.toString.split('/').length - 1
-    ];
-    
-    const response = await fetch('/api/posts/${id}', {
+     const response = await fetch('/api/posts/${id}', {
         method: 'PUT',
-        body: JSON.stringify({ post_id: id, title, content }),
+        body: JSON.stringify({ title, body }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -22,5 +18,5 @@ const editFormHandler = async (event) => {
       }
     }
    
-  document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+  document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
   

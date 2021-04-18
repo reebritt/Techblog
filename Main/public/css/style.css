@@ -1,24 +1,39 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
 
-.no-button {
-  background: none;
-  border: none;
+  * {
+    box-sizing: border-box;
+  }
+  .post .title span{
+    color:#080708
+  }
+body {
+  background-color: var(--primary);
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+  font-family: san-serif;
+  color: #080708;
+  line-height: 1.5;
+  font-size: 24px;
 }
-
+h1,
+h2,
+h3{
+  font-weight: 500;
+  margin: 0;
+  color: var(--dark);
+  line-height: 1.25;
+}
 .no-button:hover {
-  color: #065b83;
+  color: #0b0e0c;
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.link-color{
+  color: var(--tertiary);
+  padding: 10px;
+  margin-left: -10px;
+}
+.new-post-form{
+  color: var(--tertiary);
+  padding: 10px;
+  margin-left: -10px;
 }
