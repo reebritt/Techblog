@@ -12,6 +12,7 @@ const id = window.location.toString().split('/')[
   
       const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
+        const sql = `DELETE FROM post WHERE id=${id}`;
       });
   
       if (response.ok) {
@@ -20,7 +21,7 @@ const id = window.location.toString().split('/')[
         alert('Failed to delete project');
       }
     }
-
+    
 
    document.querySelector('.delete-post-btn').addEventListener('submit', deleteFormHandler);
   
