@@ -12,7 +12,8 @@ const id = window.location.toString().split('/')[
   
       const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
-        const sql = `DELETE FROM post WHERE id=${id}`;
+        body: JSOM.stringify({ post_id: id }),
+        headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
