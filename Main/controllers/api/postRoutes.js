@@ -14,6 +14,20 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+//input update
+
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const editPost = await Post.update(req.body,{
+      where: {
+        id: req.params.id
+      }
+    })
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+})
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

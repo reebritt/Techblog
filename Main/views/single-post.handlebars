@@ -1,18 +1,19 @@
-{{#if logged_in}}
+{{!-- {{#if logged_in}} --}}
 <div class="card">
-    <h3 class="card-header"></h3>
-    </div>
+    <h3 class="card-header">{{post.title}} </h3>
+    {{post.body}}
+</div>
 <form class="card-body comment-form" id="comment-form">
-       <p>Add comment </p> 
+    <p>Add comment </p>
     <textarea id='comment'>
-        
-     </textarea>
-     <button class="comment" data-post_id={{post.id}}>submit</button>
-    </form>
 
- {{#each post.comments as |comment|}}  
- <p> {{comment.body}} </p> 
+     </textarea>
+    <button class="comment" data-post_id={{post.id}}>submit</button>
+</form>
+
+{{#each post.comments as |comment|}}
+<p> {{comment.body}}  posted by {{user.username}} </p>
 {{/each}}
-{{/if}}
+{{!-- {{/if}} --}}
 
 <script src="/js/comment.js"></script>
