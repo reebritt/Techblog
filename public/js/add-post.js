@@ -4,7 +4,7 @@ const newFormHandler = async (event) => {
     // Collect values from the login form
     const title = document.querySelector('#title').value.trim();
     const body = document.querySelector('#content').value.trim();
-  
+    const postId = event.target.getAttribute('post-id');
     const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({ title, body }),
