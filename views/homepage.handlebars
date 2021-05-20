@@ -3,15 +3,15 @@
   {{#each posts as |post| }}
   <div class="card">
     <div class="card-title">
-      <p> <a href='/posts/{{post.id}}'>{{post.title}}</a> <span>posted by {{post.user.username}} on {{post.createdAt}}</span></p>
+      <p> <a href='/posts/{{post.id}}'>{{post.title}}</a> <span>posted by {{post.user.username}} on
+          {{post.createdAt}}</span></p>
     </div>
     <div class="card-body">
       <p>{{post.body}}</p>
     </div>
-    
+
   </div>
   {{/each}}
 </article>
 
 <button type="submit" class="btn"><a class="link" href="/dashboard/new">Add Post</a></button>
-

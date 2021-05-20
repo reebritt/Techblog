@@ -98,7 +98,7 @@
 console.log("editpostjs connected")
 const postId = document.querySelector('input[name="post-id"]').value
 const editPost = async function () {
-  await fetch (`/api/posts/${postId}`, {
+  await fetch(`/api/posts/${postId}`, {
     method: 'PUT'
   });
   document.location.replace(`/dashboard`);

@@ -49,7 +49,7 @@ router.get('/dashboard/new', async (req, res) => {
 //           model: Comment,
 //           include: [User]
 //         }
-     
+
 //       ],
 //     });
 
@@ -63,7 +63,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
       {
         model: Comment,
         include: [User]
-          
+
       },
       ],
     });
