@@ -21,11 +21,11 @@
     <a class="nav-link" href="/">Home</a>
     <a class="nav-link" href="/dashboard">Dashboard</a>
     <!-- Conditionally render login or logout links -->
-    {{!-- {{#if logged_in}}
+    {{#if logged_in}} 
     <a class="link" href="/" id="logout">Logout</a>
     {{else}}
     <a class="link" href="/login">Login</a>
-    {{/if}} --}}
+    {{/if}} 
   </nav>
 
   <h1>
@@ -37,7 +37,9 @@
 
   </main>
 
-
+ {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 
 </body>
 

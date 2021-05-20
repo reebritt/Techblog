@@ -67,34 +67,44 @@
 
 // document.querySelector('#edit-post').addEventListener('submit', editFormHandler);
 
-const updatePost = async (event) => {
-  // Stop the browser from submitting the form so we can do so with JavaScript
-  event.preventDefault();
+// const updatePost = async (event) => {
+//   // Stop the browser from submitting the form so we can do so with JavaScript
+//   event.preventDefault();
 
-  // Gather the data from the form elements on the page
-  const title = document.querySelector('#title-input').value.trim();
-  const description = document.querySelector('#description-input').value.trim();
-  const postId = event.target.getAttribute('post-id');
-  console.log(`the ${title} and ${description}`);
-  console.log(`the ${postId}`);
+//   // Gather the data from the form elements on the page
+//   const title = document.querySelector('#title-input').value.trim();
+//   const description = document.querySelector('#description-input').value.trim();
+//   const postId = event.target.getAttribute('post-id');
+//   console.log(`the ${title} and ${description}`);
+//   console.log(`the ${postId}`);
 
 
-  if (title && description) {
-    // Send the e-mail and password to the server
-    const response = await fetch(`/api/post/${postId}`, {
-      method: 'PUT',
-      body: JSON.stringify({ title, description }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+//   if (title && description) {
+//     // Send the e-mail and password to the server
+//     const response = await fetch(`/api/post/${postId}`, {
+//       method: 'PUT',
+//       body: JSON.stringify({ title, description }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
 
-    if (response.ok) {
-      document.location.replace(`/dashboard`);
-    } else {
-      alert('Failed to update the post');
-    }
-  }
-};
+//     if (response.ok) {
+//       document.location.replace(`/dashboard`);
+//     } else {
+//       alert('Failed to update the post');
+//     }
+//   }
+// };
 
-document
-  .querySelector('.btn-form-update')
+console.log("editpostjs connected")
+const postId = document.querySelector('input[name="post-id"]').value
+const editPost = async function () {
+  await fetch (`/api/posts/${postId}`, {
+    method: 'PUT'
+  });
+  document.location.replace(`/dashboard`);
+  console.log("updated")
+}
+
+
+document.querySelector('.btn-form-update')
   .addEventListener('click', updatePost);

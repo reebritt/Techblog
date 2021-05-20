@@ -2,31 +2,35 @@
 <section>
   <h2>Your Posts</h2>
   {{#each user.posts as |post|}}
-<div class="card">
+  <form id="delete-post-form">
+    <input type="hidden" name="post-id" value={{post.id}} />
+    <h1 type="text" name="post-title" value={{post.title}}>{{post.title}}</h1>
+    <textarea>{{post.body}}</textarea>
+       <button class="btn btn-primary btn-deletePost" type="button">Delete</button>
+       {{!-- <button class="btn btn-primary btn-form-update" post-id="{{post.id}}" type="submit">Update</button> --}}
+  </form>
+  {{!-- <div class="card">
     <div class="card-title">
       <p> {{post.title}} <span>posted on {{post.createdAt}}</span></p>
     </div>
     <div class="card-body">
       <p>{{post.body}}</p>
 
-<div class="btn btn-primary btn-deletePost" post-id={{post.id}} delete-button="yes" type="delete">Delete
-      
-    </div>
-    {{!-- <button type="submit" class="btn" id="updatePost">Update Post</button> --}}
-        {{!-- <button type="button" class="delete-post-btn">Delete Post</button> --}}
- <div class="form-group">
-                <button class="btn btn-primary btn-form-update" post-id="{{post.id}}" update-button="yes" type="submit">Update</button>
-              </div>
-  {{/each}}
+   
+      {{!-- <button type="submit" class="btn" id="updatePost">Update Post</button> --}}
+      {{!-- <button type="button" class="delete-post-btn">Delete Post</button> --}}
+      <div class="form-group">
+     
+      </div>
+      {{/each}}
 
-  {{else}}
-  <p> You have no posts</p>
+      {{else}}
+      <p> You have no posts</p>
 </section>
 
 {{/if}}
 <button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
-{{#if posts}}
+
 <script src="./js/deletePost.js"></script>
 <script src="./js/edit-post.js"></script>
 <script src="./js/add-post.js"></script>
-{{/if}}
